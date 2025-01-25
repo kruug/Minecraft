@@ -1,0 +1,15 @@
+[Unit]
+Description=SevTech Ages Minecraft Server
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+User=kruug
+WorkingDirectory=/home/kruug/minecraft/sevtech
+ExecStart=/usr/bin/sh /home/kruug/minecraft/sevtech/ServerStart.sh
+ExecStop=/opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P <myport> -p <mypassword> stop
+ExecStop=/bin/sleep 10
+
+[Install]
+WantedBy=multi-user.target
